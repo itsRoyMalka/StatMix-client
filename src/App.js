@@ -1,4 +1,4 @@
-import {BrouserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {DashboardLayout} from "./pages/dashboard/layout/DashboardLayout";
 import {Home} from "./pages/dashboard/home/Home";
 import {Statistics} from "./pages/dashboard/statistics/Statistics";
@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
 
-         <BrouserRouter>
+         <BrowserRouter>
 
                 <Routes>
 
@@ -50,7 +50,7 @@ function App() {
                     <Route path='/event/:eventId' element={<Event />} />
                 </Routes>
 
-        </BrouserRouter>
+        </BrowserRouter>
         
 
     </div>
