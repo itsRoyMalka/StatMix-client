@@ -50,7 +50,7 @@ export const Auth = ({type}) => {
                     .then(res => {
 
                         setUser(res.data.user)
-                        setCookie('token', res.data.token)
+                        //setCookie('token', res.data.token)
 
 
                         setNotification(true, "Logged in successfully")
