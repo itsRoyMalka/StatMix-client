@@ -4,6 +4,7 @@ import axios from "axios";
 import {useParams} from "react-router-dom";
 import {useCookies} from "react-cookie";
 import {Spinner} from "../../components/widgets/Spinner";
+import QRCode from "react-qr-code";
 
 
 
@@ -117,6 +118,15 @@ export const Event = () => {
                                     <main>
                                         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                                             {/* Replace with your content */}
+                                            <center>
+                                                <QRCode
+                                                    title={`${event.name}`}
+                                                    value={`https://statmix.onrender.com/event/${eventId}`}
+                                                    bgColor="white"
+                                                    fgColor="black"
+                                                    size={128}
+                                                />
+                                            </center>
 
 
                                             {(cookies.vote === eventId)?
