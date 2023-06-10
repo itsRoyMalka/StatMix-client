@@ -1,8 +1,7 @@
 import React, {Fragment, useContext} from 'react'
-import {Bars3Icon, PlusSmallIcon} from "@heroicons/react/24/outline";
+import {Bars3Icon} from "@heroicons/react/24/outline";
 import {MagnifyingGlassIcon} from "@heroicons/react/24/solid";
 import {Menu, Transition} from "@headlessui/react";
-import {useSelector} from "react-redux";
 import {UserContext} from "../../../context/UserContext";
 
 

@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import {Dropdown} from "../../../components/buttons/Dropdown";
 import {SideOverlay} from "./SideOverlay"
 import axios from "axios";
 import {Spinner} from "../../../components/widgets/Spinner";
 
-/* This example requires Tailwind CSS v2.0+ */
+
 
 
 export const GenresPage = () => {

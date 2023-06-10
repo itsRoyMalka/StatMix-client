@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import dayjs from "dayjs";
-import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {Toggle} from "../../../components/buttons/Toggle";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {setMessageOpen, setMessageTitle, setMessageType} from "../../../state/MessageSlice";
 
 

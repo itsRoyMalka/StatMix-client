@@ -1,6 +1,6 @@
-import React, {useEffect, useMemo, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {PieColumnChart} from "../../../components/charts/PieColumnChart";
-import {useNavigate, useParams} from "react-router-dom";
+import { useParams} from "react-router-dom";
 import axios from "axios";
 import {Spinner} from "../../../components/widgets/Spinner";
 import {setMessageOpen, setMessageTitle, setMessageType} from "../../../state/MessageSlice";

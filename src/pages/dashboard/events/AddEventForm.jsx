@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import dayjs from "dayjs";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
@@ -9,7 +8,7 @@ import {Toggle} from "../../../components/buttons/Toggle";
 
 export const AddEventForm = ({setOpen, formType, event}) => {
 
-    const now = dayjs().format('YYYY-MM-DD')
+    //const now = dayjs().format('YYYY-MM-DD')
     const [name, setName] = useState('')
     const [location, setLocation] = useState('')
     const [date, setDate] = useState('')

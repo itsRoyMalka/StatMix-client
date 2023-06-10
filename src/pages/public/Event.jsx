@@ -1,6 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React, {Fragment, useEffect, useState} from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import React, {useEffect, useState} from 'react'
 import axios from "axios";
 import {useParams} from "react-router-dom";
 import {useCookies} from "react-cookie";
