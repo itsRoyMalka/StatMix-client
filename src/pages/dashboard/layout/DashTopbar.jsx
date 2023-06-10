@@ -1,8 +1,9 @@
-import React, {Fragment, useContext} from 'react'
+import React, {Fragment, useContext, useState} from 'react'
 import {Bars3Icon} from "@heroicons/react/24/outline";
 import {MagnifyingGlassIcon} from "@heroicons/react/24/solid";
 import {Menu, Transition} from "@headlessui/react";
 import {UserContext} from "../../../context/UserContext";
+import {useNavigate} from "react-router-dom";
 
 
 
@@ -10,7 +11,13 @@ import {UserContext} from "../../../context/UserContext";
 export const DashTopbar = ({classNames, setMobileMenuOpen, userNavigation}) => {
 
     const {user} = useContext(UserContext)
+    const [params,setParams] = useState()
+    const navigate = useNavigate()
 
+const handleSearch = (e) =>{
+        e.preventDefault()
+    navigate(`/dashboard/search?q=${params}`)
+}
 
     return (
         <header className="w-full">
@@ -27,7 +34,7 @@ export const DashTopbar = ({classNames, setMobileMenuOpen, userNavigation}) => {
 
                 <div className="flex-1 flex justify-between px-4 sm:px-6">
                     <div className="flex-1 flex">
-                        <form className="w-full flex md:ml-0" action="#" method="GET">
+                        <form className="w-full flex md:ml-0" onSubmit={(e)=>handleSearch(e)}>
                             <label htmlFor="search-field" className="sr-only">
                                 Search all files
                             </label>
@@ -36,11 +43,13 @@ export const DashTopbar = ({classNames, setMobileMenuOpen, userNavigation}) => {
                                     <MagnifyingGlassIcon className="flex-shrink-0 h-5 w-5" aria-hidden="true" />
                                 </div>
                                 <input
-                                    name="search-field"
-                                    id="search-field"
+                                    onChange={(e)=>setParams(e.target.value)}
+
+                                    name="text"
+                                    id="text"
                                     className="h-full w-full border-transparent py-2 pl-8 pr-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-transparent focus:placeholder-gray-400"
-                                    placeholder="Search"
-                                    type="search"
+                                    placeholder="Search event..."
+                                    type="text"
                                 />
                             </div>
                         </form>

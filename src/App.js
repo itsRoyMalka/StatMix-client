@@ -13,6 +13,7 @@ import {GenresPage} from "./pages/dashboard/genres/GenresPage";
 import axios from "axios";
 import {Live} from "./pages/dashboard/live/Live";
 import {LiveRedirect} from "./pages/dashboard/live/LiveRedirect";
+import {Search} from "./pages/dashboard/search/Search";
 
 
 
@@ -45,6 +46,7 @@ function App() {
                         <Route path='/dashboard/live' element={<LiveRedirect />} />
                         <Route path='/dashboard/live/:eventId' element={<Live />} />
                         <Route path='/dashboard/signout' element={<Signout />} />
+                        <Route path='/dashboard/search' element={<Search />} />
                     </Route>
                     {/* PUBLIC ROUTES */}
                     <Route path='*' element={<NotFound />} />

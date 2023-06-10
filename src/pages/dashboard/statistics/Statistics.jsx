@@ -7,7 +7,7 @@ export const Statistics = () => {
 
     const [topGenres, setTopGenres] = useState([])
     const [leastGenres, setLeastGenres] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
 
     useEffect(()=>{

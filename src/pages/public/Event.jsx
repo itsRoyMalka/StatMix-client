@@ -17,7 +17,7 @@ export const Event = () => {
     const [pickedGenres, setPickedGenres] = useState([])
     const [isActive, setIsActive] = useState(false)
     const [cookies, setCookie] = useCookies();
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     const {eventId} = useParams()
 
 

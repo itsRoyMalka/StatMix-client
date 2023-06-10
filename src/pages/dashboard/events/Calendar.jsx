@@ -20,7 +20,7 @@ function classNames(...classes) {
 export const Calendar = ({events}) => {
 
 
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     const [selectedDay, setSelectedDay] = useState(null)
     const [eventSelected, setEventSelected] = useState(null)
     const [open, setOpen] = useState(false)

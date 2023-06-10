@@ -15,7 +15,7 @@ const path = window.location.pathname
 
 const sidebarNavigation = [
     { name: 'Home', href: '/dashboard', icon: HomeIcon, current: path === '/dashboard' },
-    { name: 'Live', href: '/dashboard/live', icon: WifiIcon, current: path === '/dashboard/live/:eventId' },
+    { name: 'Live', href: '/dashboard/live', icon: WifiIcon, current: path === '/dashboard/live' },
     { name: 'Events', href: '/dashboard/events', icon: CalendarDaysIcon, current:  path === '/dashboard/events' },
     { name: 'Statistics', href: '/dashboard/statistics', icon: PresentationChartBarIcon, current:  path === '/dashboard/statistics' },
     { name: 'Genres', href: '/dashboard/genres', icon: CircleStackIcon, current:  path === '/dashboard/genres' },

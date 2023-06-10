@@ -12,7 +12,7 @@ export const GenresPage = () => {
     const [formType, setFormType] = useState(true)
     const [genre, setGenre] = useState({})
     const [genres, setGenres] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
 
     useEffect(()=>{
