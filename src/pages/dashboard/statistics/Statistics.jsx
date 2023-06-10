@@ -12,6 +12,8 @@ export const Statistics = () => {
 
     useEffect(()=>{
 
+        setIsLoading(true)
+
         axios.get('api/user/get-user-genres')
             .then(res=>{
                 setTopGenres(res.data.sort((a,b)=>{return b.totalVotes - a.totalVotes }).slice(0,3))
@@ -21,6 +23,8 @@ export const Statistics = () => {
             .catch(error=>{
                 console.log(error)
             })
+
+        setIsLoading(false)
 
     },[])
 
