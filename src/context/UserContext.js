@@ -15,7 +15,7 @@ export function UserContextProvider({children}) {
     useEffect(() => {
 
 
-        if (cookies.token && !user) {
+        if (!user) {
             axios.get('/api/user/get-user')
                 .then(({data}) => {
                     setUser(data);
