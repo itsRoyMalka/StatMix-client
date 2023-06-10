@@ -22,7 +22,7 @@ export const GenresPage = () => {
         axios.get('/api/user/get-user-genres')
             .then(res=>{
 
-                setGenres(res.data)
+                setGenres((res.data.sort((a,b)=>{return b.totalVotes - a.totalVotes })))
                 setIsLoading(false)
 
             })

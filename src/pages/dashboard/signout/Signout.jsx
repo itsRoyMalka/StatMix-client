@@ -30,7 +30,7 @@ export const Signout = () => {
 
     useEffect(()=>{
         handleSignout().then(res=>{
-            console.log(ready)
+
             navigate('/login')
         })
     },[])
