@@ -16,7 +16,7 @@ export const Signout = () => {
 
         await axios.post('/api/auth/signout')
             .then(res=>{
-             cookies.remove('token')
+             setCookie('token', '')
                 setReady(false)
                 setUser(null)
 
