@@ -15,11 +15,12 @@ export function UserContextProvider({children}) {
     useEffect(() => {
 
 
-        if (!user) {
+        if (!user && setReady === true) {
             axios.get('/api/user/get-user')
                 .then(({data}) => {
-                    setUser(data);
                     setReady(true);
+                    setUser(data);
+
                 }).catch(err=>{
                 setUser(null)
                 setReady(false)
@@ -31,7 +32,7 @@ export function UserContextProvider({children}) {
 
 
     return (
-        <UserContext.Provider value={{user,setUser,ready}}>
+        <UserContext.Provider value={{user,setUser,ready, setReady}}>
             {children}
         </UserContext.Provider>
     );
