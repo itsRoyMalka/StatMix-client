@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useRef, useState} from 'react'
 
 import {useNavigate} from "react-router-dom";
-
+import {useCookies} from "react-cookie";
 import axios from "axios";
 import {UserContext} from "../../../context/UserContext";
 
@@ -16,7 +16,7 @@ export const Signout = () => {
 
         await axios.post('/api/auth/signout')
             .then(res=>{
-             setCookie('token', '')
+             cookies.remove('token')
                 setReady(false)
                 setUser(null)
 
