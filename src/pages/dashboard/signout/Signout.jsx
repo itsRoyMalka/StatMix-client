@@ -10,11 +10,13 @@ export const Signout = () => {
 
     const navigate = useNavigate()
     const {setUser,ready, setReady} = useContext(UserContext)
+    const [cookies, setCookie] = useCookies();
 
     const handleSignout = async () =>{
 
         await axios.post('/api/auth/signout')
             .then(res=>{
+             cookies.remove('token')
                 setReady(false)
                 setUser(null)
 
