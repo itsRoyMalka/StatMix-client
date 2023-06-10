@@ -44,18 +44,22 @@ export const DashboardLayout = ({children}) => {
 
     const navigate = useNavigate()
     const [cookies, setCookie] = useCookies();
-    const {user} = useContext(UserContext)
+    const {user, ready} = useContext(UserContext)
    const isMessageOpen = useSelector(state=> state.message.open)
 
 
-     if(!ready && !user ){
-   
+    if(ready ){
+
+        setTimeout(()=>{
+
             if(!user){
                 navigate('/login')
-            }   
-        
+            }
+
+        },(1000))
+
+
     }
-        
 
     //console.log(user)
 
