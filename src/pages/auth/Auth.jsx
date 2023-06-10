@@ -49,8 +49,8 @@ export const Auth = ({type}) => {
                 await axios.post('/api/auth/login', {email, password})
                     .then(res => {
 
-                        setUser(res.data.user)
-                        setCookie('token', res.data.token,  {maxAge: 100000000})
+                        setUser(res.data)
+                        //setCookie('token', res.data.token,  {maxAge: 100000000})
                     
                         setNotification(true, "Logged in successfully")
                         setTimeout(() => {
