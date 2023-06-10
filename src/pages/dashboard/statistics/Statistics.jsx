@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import axios from "axios";
 import {GenreStats} from "../../../components/widgets/GenreStats";
+import {Spinner} from "../../../components/widgets/Spinner";
 
 export const Statistics = () => {
 
     const [topGenres, setTopGenres] = useState([])
     const [leastGenres, setLeastGenres] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
 
     useEffect(()=>{
@@ -28,8 +30,18 @@ export const Statistics = () => {
             <section aria-labelledby="primary-heading" className="min-w-0 flex-1 h-full flex flex-col lg:order-last gap-5">
 
 
-                <GenreStats genres={topGenres} title={'Top Genres'} showAll={false} />
-                <GenreStats genres={leastGenres} title={'Least Genres'} showAll={false}/>
+                {isLoading?
+                    (
+                       <Spinner />
+                    ):
+                    (
+                        <>
+                        <GenreStats genres={topGenres} title={'Top Genres'} showAll={false} />
+                        <GenreStats genres={leastGenres} title={'Least Genres'} showAll={false}/>
+                        </>
+                    )}
+
+
             </section>
         </main>
 
