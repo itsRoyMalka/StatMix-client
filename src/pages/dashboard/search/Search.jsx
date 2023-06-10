@@ -18,6 +18,7 @@ export const Search = () => {
 
 
     useEffect(()=>{
+        setIsLoading(true)
         axios.post('/api/user/search-event', {params})
             .then(res=>{
                 setEvents(res.data)
@@ -25,6 +26,8 @@ export const Search = () => {
             .catch(error=>{
                 console.log(error)
             })
+
+        setIsLoading(false)
     },[])
 
     const handleViewEvent = async (e, event)=>{
