@@ -18,9 +18,9 @@ import {LiveRedirect} from "./pages/dashboard/live/LiveRedirect";
 
 function App() {
 
+    axios.defaults.baseURL = (process.env.NODE_ENV === 'production' ? ('https://statmix-api.onrender.com') : ('http://localhost:3001'))
 
-    axios.defaults.baseURL = "https://statMix-api.onrender.com" //PRODUCTION
-    //axios.defaults.baseURL = "http://localhost:3001" //DEV
+
     axios.defaults.withCredentials = true;
 
   return (
