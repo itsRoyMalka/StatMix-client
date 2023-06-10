@@ -48,7 +48,7 @@ export const DashboardLayout = ({children}) => {
    const isMessageOpen = useSelector(state=> state.message.open)
 
 
-    if(!user || !cookies.token){
+    if(!user){
         navigate('/login')
     }
 
