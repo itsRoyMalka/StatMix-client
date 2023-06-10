@@ -48,16 +48,11 @@ export const DashboardLayout = ({children}) => {
    const isMessageOpen = useSelector(state=> state.message.open)
 
 
-     if(!ready ){
-        
-        setTimeout(()=>{
-            
+     if(!ready && !user ){
+   
             if(!user){
                 navigate('/login')
-            }
-            
-        },(1000))
-        
+            }   
         
     }
         
