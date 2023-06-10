@@ -8,7 +8,6 @@ import {Profile} from "./pages/dashboard/profile/Profile";
 import {Signout} from "./pages/dashboard/signout/Signout";
 import {EventsPage} from "./pages/dashboard/events/EventsPage";
 import {NotFound} from "./pages/notFound/NotFound";
-import {useContext} from "react";
 import {Event} from "./pages/public/Event";
 import {GenresPage} from "./pages/dashboard/genres/GenresPage";
 import axios from "axios";

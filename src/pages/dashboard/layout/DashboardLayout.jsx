@@ -1,7 +1,5 @@
-import React, {Fragment, useContext, useEffect, useState} from 'react'
-import {CogIcon, HomeIcon, CalendarDaysIcon, PresentationChartBarIcon, UsersIcon, WifiIcon} from "@heroicons/react/24/outline";
-import {MagnifyingGlassIcon} from "@heroicons/react/24/solid";
-import {Menu, Transition} from "@headlessui/react";
+import React, {Fragment, useContext, useState} from 'react'
+import { HomeIcon, CalendarDaysIcon, PresentationChartBarIcon, UsersIcon, WifiIcon} from "@heroicons/react/24/outline";
 import {DashSideNav} from "./DashSideNav";
 import {DashMobileNav} from "./DashMobileNav";
 import {DashTopbar} from "./DashTopbar";
@@ -9,7 +7,6 @@ import {Outlet, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {Message} from "../../../components/modals/Message";
 import {useCookies} from "react-cookie";
-import axios from "axios";
 import {CircleStackIcon} from "@heroicons/react/20/solid";
 import {UserContext} from "../../../context/UserContext";
 
@@ -43,7 +40,6 @@ function classNames(...classes) {
 export const DashboardLayout = ({children}) => {
 
     const navigate = useNavigate()
-    const [cookies, setCookie] = useCookies();
     const {user, ready} = useContext(UserContext)
    const isMessageOpen = useSelector(state=> state.message.open)
 

@@ -1,10 +1,9 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useState} from 'react'
 
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import axios from "axios";
-import {useCookies} from "react-cookie";
-import {UserContext, UserContextProvider} from "../../context/UserContext";
+import {UserContext} from "../../context/UserContext";
 import {setMessageOpen, setMessageTitle, setMessageType} from "../../state/MessageSlice";
 import {Message} from "../../components/modals/Message";
 
@@ -20,7 +19,6 @@ export const Auth = ({type}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [imageUrl, setImageUrl] = useState('')
-    const [cookies, setCookie] = useCookies();
     const {user, setUser} = useContext(UserContext)
     const isMessageOpen = useSelector(state=> state.message.open)
 
