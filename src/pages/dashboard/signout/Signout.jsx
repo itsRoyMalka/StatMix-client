@@ -9,16 +9,20 @@ export const Signout = () => {
 
 
     const navigate = useNavigate()
-    const {setUser} = useContext(UserContext)
+    const {setUser,ready, setReady} = useContext(UserContext)
 
     const handleSignout = async () =>{
 
         await axios.post('/api/auth/signout')
             .then(res=>{
+                setReady(false)
                 setUser(null)
+
             })
             .catch(error=>{
+                console.log("here")
                 console.log(error)
+
 
             })
 
@@ -27,6 +31,7 @@ export const Signout = () => {
 
     useEffect(()=>{
         handleSignout().then(res=>{
+            console.log(ready)
             navigate('/login')
         })
     },[])
