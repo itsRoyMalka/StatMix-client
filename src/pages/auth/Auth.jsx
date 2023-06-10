@@ -6,6 +6,7 @@ import axios from "axios";
 import {UserContext} from "../../context/UserContext";
 import {setMessageOpen, setMessageTitle, setMessageType} from "../../state/MessageSlice";
 import {Message} from "../../components/modals/Message";
+import {Spinner} from "../../components/widgets/Spinner";
 
 export const Auth = ({type}) => {
 
@@ -21,6 +22,7 @@ export const Auth = ({type}) => {
     const [imageUrl, setImageUrl] = useState('')
     const {user, setUser} = useContext(UserContext)
     const isMessageOpen = useSelector(state=> state.message.open)
+    const [isLoading, setIsLoading] = useState(false)
 
 
     const setNotification = async (typeN, title) =>{
@@ -40,6 +42,7 @@ export const Auth = ({type}) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        setIsLoading(true)
 
         //type true - log in
         if (type) {
@@ -52,6 +55,7 @@ export const Auth = ({type}) => {
 
 
                         setNotification(true, "Logged in successfully")
+                        setIsLoading(false)
                         setTimeout(() => {
                             navigate('/dashboard')
                         }, 1000)
@@ -59,7 +63,9 @@ export const Auth = ({type}) => {
                     })
                     .catch(error => {
                         console.log(error)
+                        setIsLoading(false)
                         setNotification(false, `${error.message}`)
+
 
                     })
 
@@ -79,12 +85,14 @@ export const Auth = ({type}) => {
                     await axios.post('/api/auth/signup', {firstName, lastName, email, password, imageUrl})
                         .then(res => {
                             setNotification(true, "Signed up successfully")
+                            setIsLoading(false)
                             setTimeout(() => {
                                 navigate('/login')
                             }, 1000)
                         })
                         .catch(error => {
                             console.log(error)
+                            setIsLoading(false)
                             setNotification(false, `${error.message}`)
                         })
 
@@ -94,6 +102,7 @@ export const Auth = ({type}) => {
 
                 }
             }
+        setIsLoading(false)
         }
 
 
@@ -106,6 +115,10 @@ export const Auth = ({type}) => {
             {isMessageOpen &&
                 <Message />
             }
+            {isLoading &&
+                <Spinner />
+            }
+
 
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <img
@@ -246,6 +259,7 @@ export const Auth = ({type}) => {
                         </p>
                     )
                 }
+
 
             </div>
         </div>
