@@ -54,7 +54,7 @@ export const Event = () => {
         axios.post(`/api/public/post-event/${eventId}`,pickedGenres)
             .then(res=>{
 
-            setCookie('vote', eventId)
+            setCookie('vote', eventId, {sameSite: 'none', secure: true})
                 window.location.reload(false);
                 console.log(res)
             })
