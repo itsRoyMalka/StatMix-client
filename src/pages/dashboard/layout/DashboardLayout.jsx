@@ -1,4 +1,4 @@
-import React, { useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { HomeIcon, CalendarDaysIcon, PresentationChartBarIcon, UsersIcon, WifiIcon} from "@heroicons/react/24/outline";
 import {DashSideNav} from "./DashSideNav";
 import {DashMobileNav} from "./DashMobileNav";
@@ -8,6 +8,7 @@ import {useSelector} from "react-redux";
 import {Message} from "../../../components/modals/Message";
 import {CircleStackIcon} from "@heroicons/react/20/solid";
 import {UserContext} from "../../../context/UserContext";
+import axios from "axios";
 
 
 const path = window.location.pathname
@@ -43,20 +44,22 @@ export const DashboardLayout = ({children}) => {
    const isMessageOpen = useSelector(state=> state.message.open)
 
 
-    if(ready ){
 
-        setTimeout(()=>{
 
-            if(!user){
+    useEffect(()=>{
+        console.log('set')
+
+        axios.get('/api/user/get-user')
+            .then(res=>{
+
+            })
+            .catch(error=>{
                 navigate('/login')
-            }
+            })
 
-        },(1000))
+    },[])
 
 
-    }
-
-    //console.log(user)
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 

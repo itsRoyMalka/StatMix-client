@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
@@ -20,7 +20,7 @@ export const Auth = ({type}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [imageUrl, setImageUrl] = useState('')
-    const {user, setUser} = useContext(UserContext)
+    const {user,ready, setUser} = useContext(UserContext)
     const isMessageOpen = useSelector(state=> state.message.open)
     const [isLoading, setIsLoading] = useState(false)
 
@@ -33,10 +33,21 @@ export const Auth = ({type}) => {
 
     }
 
-    if(user){
-        navigate('/dashboard')
+    useEffect(()=>{
 
-    }
+        if(type)
+        axios.get('/api/user/get-user')
+            .then(res=>{
+                navigate('/dashboard')
+            })
+            .catch(error=>{
+
+            })
+
+    },[])
+
+
+
 
 
     const handleSubmit = async (e) => {

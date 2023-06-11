@@ -15,6 +15,7 @@ import {Live} from "./pages/dashboard/live/Live";
 import {LiveRedirect} from "./pages/dashboard/live/LiveRedirect";
 import {Search} from "./pages/dashboard/search/Search";
 import {HomePage} from "./pages/public/HomePage";
+import {UserContextProvider} from "./context/UserContext";
 
 
 
@@ -28,6 +29,8 @@ function App() {
 
   return (
     <div className="App">
+
+        <UserContextProvider>
 
          <BrowserRouter>
 
@@ -57,6 +60,7 @@ function App() {
                 </Routes>
 
         </BrowserRouter>
+        </UserContextProvider>
         
 
     </div>

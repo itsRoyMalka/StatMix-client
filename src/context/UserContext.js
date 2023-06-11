@@ -18,6 +18,8 @@ export function UserContextProvider({children}) {
         if (!user && setReady === true) {
             axios.get('/api/user/get-user')
                 .then(({data}) => {
+
+
                     setReady(true);
                     setUser(data);
 
@@ -26,7 +28,7 @@ export function UserContextProvider({children}) {
                 setReady(false)
             });
         }
-    }, []);
+    }, [user]);
 
 
 
