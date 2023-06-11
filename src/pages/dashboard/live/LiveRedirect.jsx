@@ -4,6 +4,17 @@ import {useNavigate} from "react-router-dom";
 import {setMessageOpen, setMessageTitle, setMessageType} from "../../../state/MessageSlice";
 import {useDispatch} from "react-redux";
 import {Spinner} from "../../../components/widgets/Spinner";
+import {Dropdown} from "../../../components/buttons/Dropdown";
+
+
+const buttons = [
+    {
+        name: 'Name'
+    },
+    {
+        name: 'Date'
+    }
+]
 
 export const LiveRedirect = () => {
 
@@ -62,6 +73,35 @@ export const LiveRedirect = () => {
             })
     }
 
+
+    /*
+    const handleSort = async (e, button) =>{
+
+        setIsLoading(true)
+        e.preventDefault()
+
+
+         if(button.name === 'Name'){
+
+             const sorted = events.sort((a,b)=>{return b.name - a.name})
+
+            setEvents(sorted)
+
+        }else if(button.name === 'Date'){
+
+            const sorted = events.sort((a,b)=>{return b.date - a.date})
+
+            setEvents(sorted)
+        }
+
+        setIsLoading(false)
+
+
+
+    }
+
+     */
+
     return (
         <main className="lg:py-8 lg:px-16 px-4 flex-1 overflow-y-auto">
             <section aria-labelledby="primary-heading" className="min-w-0 flex-1 h-full flex flex-col lg:order-last">
@@ -94,8 +134,24 @@ export const LiveRedirect = () => {
                                     <div className="mt-8 flex flex-col">
                                         <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                                                {/*
+                                                 <div className="text-right">
+                                                    <Dropdown title={<a
+                                                        onClick={()=>{}}
+                                                        type="button"
+                                                        className=" h-8 w-24 focus:outline-none rounded-md border border-transparent bg-sky-400  text-sm font-medium text-white shadow-sm hover:bg-sky-500 focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
+                                                    >
+                                                        Sort by
+                                                    </a>} buttons={buttons} handler={handleSort} />
+                                                </div>
+
+                                                */}
+
+
                                                 <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+
                                                     <table className="min-w-full divide-y divide-gray-300">
+
                                                         <thead className="bg-gray-50">
                                                         <tr>
                                                             <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
@@ -117,6 +173,7 @@ export const LiveRedirect = () => {
                                                             <th scope="col" className=" px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                                                 Live
                                                             </th>
+
 
 
                                                         </tr>

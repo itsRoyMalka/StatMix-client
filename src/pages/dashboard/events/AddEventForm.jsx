@@ -47,7 +47,7 @@ export const AddEventForm = ({setOpen, formType, event}) => {
     const handleSubmit = async (e) =>{
         e.preventDefault()
 
-        const newDate = `${date}T${time}:00.000+00:00`
+            const newDate = `${date}T${time}:00.000+00:00`
 
 
         if(formType){
@@ -72,7 +72,7 @@ export const AddEventForm = ({setOpen, formType, event}) => {
 
         }else{
 
-            await axios.patch('/api/user/edit-event',{id: event._id, name,isActive, location, date: newDate, description})
+            await axios.patch('/api/user/edit-event',{id: event._id, name,isActive, location,oldDate:event.date, date: newDate, description})
                 .then(res=>{
                     console.log(res.status)
                     setOpen(false)
