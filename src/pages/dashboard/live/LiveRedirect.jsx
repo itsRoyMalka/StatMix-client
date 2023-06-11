@@ -5,6 +5,7 @@ import {setMessageOpen, setMessageTitle, setMessageType} from "../../../state/Me
 import {useDispatch} from "react-redux";
 import {Spinner} from "../../../components/widgets/Spinner";
 import {Dropdown} from "../../../components/buttons/Dropdown";
+import {SideOverlay} from "../events/SideOverlay";
 
 
 const buttons = [
@@ -22,6 +23,9 @@ export const LiveRedirect = () => {
     const dispatch = useDispatch()
     const [events, setEvents] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+    const [open,setOpen] = useState(false)
+    const [eventSelected, setEventSelected] = useState(null)
+
 
 
 
@@ -73,6 +77,16 @@ export const LiveRedirect = () => {
             })
     }
 
+    const handleViewEvent = async (e, event)=>{
+
+        await setEventSelected(event)
+
+
+        setOpen(true)
+
+
+    }
+
 
     /*
     const handleSort = async (e, button) =>{
@@ -114,6 +128,7 @@ export const LiveRedirect = () => {
                 :(
 
                     <>
+                        <SideOverlay open={open} setOpen={setOpen} formType={false} event={eventSelected}  />
 
                             {events?.length === 1 &&
 
@@ -245,9 +260,9 @@ export const LiveRedirect = () => {
 
 
                                                                 <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                                    <a onClick={()=>{navigate(`/dashboard/live/${event._id.toString()}`)}}
+                                                                    <a onClick={(e)=>{handleViewEvent(e,event)}}
                                                                        className="text-sky-400 hover:text-sky-500 cursor-pointer">
-                                                                        Go to event </a>
+                                                                        Edit </a>
 
                                                                 </td>
                                                             </tr>
