@@ -14,6 +14,8 @@ import axios from "axios";
 import {Live} from "./pages/dashboard/live/Live";
 import {LiveRedirect} from "./pages/dashboard/live/LiveRedirect";
 import {Search} from "./pages/dashboard/search/Search";
+import {HomePage} from "./pages/public/HomePage";
+
 
 
 
@@ -50,6 +52,7 @@ function App() {
                     </Route>
                     {/* PUBLIC ROUTES */}
                     <Route path='*' element={<NotFound />} />
+                    <Route path='/' element={<HomePage />} />
                     <Route path='/event/:eventId' element={<Event />} />
                 </Routes>
 
